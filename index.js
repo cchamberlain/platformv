@@ -1,4 +1,4 @@
-var platform = process.env.platform;
+var platform = process.platform;
 
 exports.platform = platform;
 exports.platformv = getVariant();
@@ -9,10 +9,13 @@ function getVariant() {
   }
 
   var path = process.env.PATH.toLowerCase();
+  function location(str) {
+    return path.indexOf(str);
+  }
   var order = [
-    { "msys2": path.indexOf("msys") },
-    { "mingw": path.indexOf("mingw") },
-    { "cygwin": path.indexOf("cygwin") }
+    { "msys2": location("msys") },
+    { "mingw": location("mingw") },
+    { "cygwin": location("cygwin") }
   ];
 
   if(order.msys === -1 && order.mingw === -1 && order.cygwin === -1) {
