@@ -1,6 +1,6 @@
 {
   "name": "platformv",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Node package to guess more detailed information about the platform.",
   "main": "index.js",
   "scripts": {
