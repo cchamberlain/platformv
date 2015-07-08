@@ -5,7 +5,7 @@ var platform = process.env.platform
 exports.platform = platform;
 exports.platformv = getVariant();
 
-function getVariant()
+function getVariant() {
   if(platform !== "win32") {
     return platform;
   }
