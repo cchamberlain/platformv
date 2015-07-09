@@ -37,5 +37,9 @@ function getPathVariant(path) {
   if(platform !== "win32") {
     return platform;
   }
-  return path.replace(/\\\\[:]/g, '/');
+  var nixPath = path.toLowerCase().replace(/^([A-Za-z]):/, "/$1").replace(/\\/g, "/");
+  if(platformv === "cygwin") {
+    nixPath = "/cygdrive" + nixPath;
+  }
+  return nixPath;
 }
